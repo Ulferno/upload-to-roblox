@@ -40,7 +40,9 @@ try {
 			data: stream,
 			maxContentLength: Infinity,
 			maxBodyLength: Infinity,
-		})
+		}).catch(console.warn)
+
+		console.log("Response:", JSON.stringify(response.data));
 
 		console.log('Uploaded to Roblox. Version:', response.data.versionNumber)
 
