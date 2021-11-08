@@ -15,4 +15,4 @@ jobs:
       with:
         api-key: ${{ secrets.ROBLOX_API_KEY }}
         experienceId: 3071202796
-        file: ./test/binary.rblx
+        file: ./test/binary.rbxl
