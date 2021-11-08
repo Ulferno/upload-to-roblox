@@ -28,7 +28,9 @@ try {
 		const isXML = extension == '.rbxlx';
 		const stream = fs.createReadStream(filePath);
 
-		await axios({
+		console.log('Uploading to Roblox')
+
+		const response = await axios({
 			method: 'POST',
 			url: `https://apis.roblox.com/universes/v1/${universeId}/places/${placeId}/versions?versionType=${shouldPublish ? 'Published' : 'Saved'}`,
 			headers: {
@@ -38,7 +40,9 @@ try {
 			data: stream
 		})
 
-		core.setOutput("version", 1);
+		console.log('Uploaded to Roblox. Version:', response.data.versionNumber)
+
+		core.setOutput('version', response.data.versionNumber);
 	})()
 } catch (error) {
 	core.setFailed(error.message);
