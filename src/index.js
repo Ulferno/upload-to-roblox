@@ -12,17 +12,20 @@ try {
 
 	const validPath = fs.existsSync(filePath);
 
-	console.log(filePath, validPath)
-	console.log(path.basename(filePath), path.extname(filePath))
-
 	if (!validPath) {
 		return core.setFailed('Invalid file path');
 	}
 
-	core.setOutput("version", 1);
+	const extension = path.extname(filePath);
+	if (!extension.match(/^((\.rbxl)|(\.rbxlx))$/g)) {
+		return core.setFailed('Invalid file type');
+	}
 
-	const payload = JSON.stringify(github.context.payload, undefined, 2)
-	console.log(`The event payload: ${payload}`);
+	const isXML = extension == '.rbxlx';
+
+	console.log("isXML", isXML)
+
+	core.setOutput("version", 1);
 } catch (error) {
 	core.setFailed(error.message);
 }
