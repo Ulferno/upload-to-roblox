@@ -37,7 +37,9 @@ try {
 				'Content-Type': isXML ? 'application/xml' : 'application/octet-stream',
 				'x-api-key': apiKey
 			},
-			data: stream
+			data: stream,
+			maxContentLength: Infinity,
+			maxBodyLength: Infinity,
 		})
 
 		console.log('Uploaded to Roblox. Version:', response.data.versionNumber)
