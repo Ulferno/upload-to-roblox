@@ -1,0 +1,23 @@
+name: 'upload-to-roblox'
+author: Ulferno
+description: 'Upload a place file to Roblox'
+inputs:
+  api-key:
+    description: 'API key for publishing place'
+    required: true
+  experienceId:
+    description: 'The id of the experience to upload to'
+    required: true
+  file:
+    description: 'File to upload'
+    required: true
+  shouldPublish:
+    description: 'Should the file be saved and published (true) or just saved (false)'
+    required: false
+    default: true
+outputs:
+  version:
+    description: 'The version uploaded'
+runs:
+  using: 'node16'
+  main: 'src/index.js'

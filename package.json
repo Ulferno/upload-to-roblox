@@ -1,0 +1,24 @@
+{
+  "name": "upload-to-roblox",
+  "version": "1.0.0",
+  "description": "GitHub action to upload a Roblox place to Roblox with the Place Management API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ulferno/upload-to-roblox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ulferno/upload-to-roblox/issues"
+  },
+  "homepage": "https://github.com/Ulferno/upload-to-roblox#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  }
+}
