@@ -1,8 +1,9 @@
 name: 'upload-to-roblox'
 author: 'Ulferno'
 description: 'Upload a place file to Roblox'
-icon: 'upload-cloud'
-color: 'red'
+branding:
+  icon: 'upload-cloud'
+  color: 'red'
 inputs:
   api-key:
     description: 'API key for publishing place'
