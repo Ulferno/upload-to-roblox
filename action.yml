@@ -19,5 +19,5 @@ outputs:
   version:
     description: 'The version uploaded'
 runs:
-  using: 'node16'
+  using: 'node12'
   main: 'src/index.js'
