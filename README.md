@@ -30,10 +30,10 @@ The uploaded place version.
 
 ```yaml
 - name: upload-to-roblox
-	uses: Ulferno/upload-to-roblox@v1.0.0
-	with:
-		api-key: ${{ secrets.ROBLOX_API_KEY }}
-		universeId: 0000000000
-		placeId: 0000000000
-		file: ./path/to/file.rbxl
+  uses: Ulferno/upload-to-roblox@v1.0.0
+  with:
+    api-key: ${{ secrets.ROBLOX_API_KEY }}
+	universeId: 0000000000
+	placeId: 0000000000
+	file: ./path/to/file.rbxl		
 ```
