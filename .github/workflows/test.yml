@@ -15,4 +15,5 @@ jobs:
       with:
         api-key: ${{ secrets.ROBLOX_API_KEY }}
         experienceId: 3071202796
+        placeId: 7943517904
         file: ./test/binary.rbxl

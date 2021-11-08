@@ -4,28 +4,42 @@ const github = require('@actions/github');
 const fs = require('fs');
 const path = require('path');
 
+const axios = require('axios');
+
 try {
-	const apiKey = core.getInput('api-key');
-	const experienceId = core.getInput('experienceId');
-	const filePath = core.getInput('file');
-	const shouldPublish = core.getInput('shouldPublish');
+	(async () => {
+		const apiKey = core.getInput('api-key');
+		const universeId = core.getInput('universeId');
+		const placeId = core.getInput('placeId');
+		const filePath = core.getInput('file');
+		const shouldPublish = core.getInput('shouldPublish');
 
-	const validPath = fs.existsSync(filePath);
+		const validPath = fs.existsSync(filePath);
 
-	if (!validPath) {
-		return core.setFailed('Invalid file path');
-	}
+		if (!validPath) {
+			return core.setFailed('Invalid file path');
+		}
 
-	const extension = path.extname(filePath);
-	if (!extension.match(/^((\.rbxl)|(\.rbxlx))$/g)) {
-		return core.setFailed('Invalid file type');
-	}
+		const extension = path.extname(filePath);
+		if (!extension.match(/^((\.rbxl)|(\.rbxlx))$/g)) {
+			return core.setFailed('Invalid file type');
+		}
 
-	const isXML = extension == '.rbxlx';
+		const isXML = extension == '.rbxlx';
+		const stream = fs.createReadStream(filePath);
 
-	console.log("isXML", isXML)
+		await axios({
+			method: 'POST',
+			url: `https://apis.roblox.com/universes/v1/${universeId}/places/${placeId}/versions?versionType=${shouldPublish ? 'Published' : 'Saved'}`,
+			headers: {
+				'Content-Type': isXML ? 'application/xml' : 'application/octet-stream',
+				'x-api-key': apiKey
+			},
+			data: stream
+		})
 
-	core.setOutput("version", 1);
+		core.setOutput("version", 1);
+	})()
 } catch (error) {
 	core.setFailed(error.message);
 }

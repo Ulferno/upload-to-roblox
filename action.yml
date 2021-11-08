@@ -5,8 +5,11 @@ inputs:
   api-key:
     description: 'API key for publishing place'
     required: true
-  experienceId:
-    description: 'The id of the experience to upload to'
+  universeId:
+    description: 'The id of the universe where the place is located'
+    required: true
+  placeId:
+    description: 'The id of place to upload to'
     required: true
   file:
     description: 'File to upload'
