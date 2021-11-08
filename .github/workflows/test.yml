@@ -16,4 +16,4 @@ jobs:
         api-key: ${{ secrets.ROBLOX_API_KEY }}
         universeId: 3071202796
         placeId: 7943517904
-        file: ./test/binary.rbxl
+        file: ./test/binary.rbxlx
