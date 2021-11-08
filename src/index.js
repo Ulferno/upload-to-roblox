@@ -12,12 +12,12 @@ try {
 
 	const validPath = fs.existsSync(filePath);
 
+	console.log(filePath, validPath)
+	console.log(path.basename(filePath), path.extname(filePath))
+
 	if (!validPath) {
 		return core.setFailed('Invalid file path');
 	}
-
-	console.log(filePath)
-	console.log(path.basename(filePath), path.extname(filePath))
 
 	core.setOutput("version", 1);
 
