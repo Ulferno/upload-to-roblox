@@ -42,7 +42,7 @@ try {
 			maxBodyLength: Infinity,
 		}).catch(console.warn)
 
-		console.log("Response:", JSON.stringify(response.data));
+		console.log("Request:", JSON.stringify(response, null, 4));
 
 		console.log('Uploaded to Roblox. Version:', response.data.versionNumber)
 
