@@ -47,17 +47,25 @@ try {
 		console.log("Config:", config)
 
 		const startTime = performance.now()
-		const response = await axios(config).catch(console.warn)
+		const response = await axios(config).catch(err => {
+			console.warn("Error while uploading", err)
+			console.log("Time to fail:", performance.now() - startTime, "ms")
+			console.log("Response from Roblox:", err.response.data)
+		})
 		const endTime = performance.now()
 
-		console.log("Response:", response);
-		console.log("Response from Roblox:", response.data)
-		
-		console.log("Time to upload:", endTime - startTime, "ms")
+		if (response) {
+			console.log("Response:", response);
+			console.log("Response from Roblox:", response.data)
+			
+			console.log("Time to upload:", endTime - startTime, "ms")
 
-		console.log('Uploaded to Roblox. Version:', response.data.versionNumber)
+			console.log('Uploaded to Roblox. Version:', response.data.versionNumber)
 
-		core.setOutput('version', response.data.versionNumber);
+			core.setOutput('version', response.data.versionNumber);
+		} else {
+			core.setOutput('version', 0);
+		}
 	})()
 } catch (error) {
 	core.setFailed(error.message);
