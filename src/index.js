@@ -45,9 +45,9 @@ try {
 
 		console.log("Config:", config)
 
-		const startTime = peformance.now()
+		const startTime = performance.now()
 		const response = await axios(config).catch(console.warn)
-		const endTime = peformance.now()
+		const endTime = performance.now()
 
 		console.log("Response:", response);
 		console.log("Response from Roblox:", response.data)
