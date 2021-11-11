@@ -27,10 +27,11 @@ try {
 
 		const isXML = extension == '.rbxlx';
 		const stream = fs.createReadStream(filePath);
-
+		
+		
 		console.log('Uploading to Roblox')
 
-		const response = await axios({
+		const config = {
 			method: 'POST',
 			url: `https://apis.roblox.com/universes/v1/${universeId}/places/${placeId}/versions?versionType=${shouldPublish ? 'Published' : 'Saved'}`,
 			headers: {
@@ -40,9 +41,18 @@ try {
 			data: stream,
 			maxContentLength: Infinity,
 			maxBodyLength: Infinity,
-		}).catch(console.warn)
+		}
 
-		console.log("Request:", response);
+		console.log("Config:", config)
+
+		const startTime = performance.now()
+		const response = await axios(config).catch(console.warn)
+		const endTime = peformance.now()
+
+		console.log("Response:", response);
+		console.log("Response from Roblox:", response.data)
+		
+		console.log("Time to upload:", endTime - startTime, "ms")
 
 		console.log('Uploaded to Roblox. Version:', response.data.versionNumber)
 
