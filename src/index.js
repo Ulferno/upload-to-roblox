@@ -45,7 +45,7 @@ try {
 
 		console.log("Config:", config)
 
-		const startTime = performance.now()
+		const startTime = peformance.now()
 		const response = await axios(config).catch(console.warn)
 		const endTime = peformance.now()
 
