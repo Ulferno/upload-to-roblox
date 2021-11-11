@@ -3,6 +3,7 @@ const github = require('@actions/github');
 
 const fs = require('fs');
 const path = require('path');
+const {performance} = require('perf_hooks');
 
 const axios = require('axios');
 
