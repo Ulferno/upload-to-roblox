@@ -46,27 +46,24 @@ try {
 			maxBodyLength: Infinity,
 		}
 
-		console.log("Config:", config)
-
 		const startTime = performance.now()
 		const response = await axios(config).catch(err => {
 			console.warn("Error while uploading", err)
 			console.log("Time to fail:", performance.now() - startTime, "ms")
-			console.log("Response from Roblox:", err.response.data)
+			console.log("Response from Roblox:", err.response.data);
+			
+			core.setFailed(err);
 		})
 		const endTime = performance.now()
 
-		if (response) {
-			console.log("Response:", response);
-			console.log("Response from Roblox:", response.data)
-			
+		if (response) {		
 			console.log("Time to upload:", endTime - startTime, "ms")
 
 			console.log('Uploaded to Roblox. Version:', response.data.versionNumber)
 
 			core.setOutput('version', response.data.versionNumber);
 		} else {
-			core.setOutput('version', 0);
+			core.setFailed('An unknown error occured');
 		}
 	})()
 } catch (error) {
