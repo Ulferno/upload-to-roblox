@@ -1,3 +1,5 @@
+require('child_process').execSync("cd " + __dirname + " && npm install")
+
 const core = require('@actions/core');
 const github = require('@actions/github');
 
