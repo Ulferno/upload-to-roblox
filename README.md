@@ -30,7 +30,7 @@ The uploaded place version.
 
 ```yaml
 - name: upload-to-roblox
-  uses: Ulferno/upload-to-roblox@v1.0.0
+  uses: Ulferno/upload-to-roblox@latest
   with:
     api-key: ${{ secrets.ROBLOX_API_KEY }}
     universeId: 0000000000
