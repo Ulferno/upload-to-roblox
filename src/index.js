@@ -15,7 +15,7 @@ try {
 		const universeId = core.getInput('universeId');
 		const placeId = core.getInput('placeId');
 		const filePath = core.getInput('file');
-		const shouldPublish = core.getInput('shouldPublish');
+		const shouldPublish = core.getBooleanInput('shouldPublish');
 
 		const validPath = fs.existsSync(filePath);
 
