@@ -57,10 +57,13 @@ try {
 		const endTime = performance.now()
 
 		if (response) {		
-			console.log("Time to upload:", endTime - startTime, "ms")
+			const timeToUpload = endTime - startTime;
 
-			console.log('Uploaded to Roblox. Version:', response.data.versionNumber)
+			console.log("Time to upload:", timeToUpload, "ms");
 
+			console.log('Uploaded to Roblox. Version:', response.data.versionNumber);
+
+			core.setOutput('uploadTime', timeToUpload);
 			core.setOutput('version', response.data.versionNumber);
 		} else {
 			core.setFailed('An unknown error occured');
