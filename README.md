@@ -1,5 +1,7 @@
 # upload-to-roblox
-GitHub action to upload a Roblox place to Roblox with the Place Management API
+GitHub action to upload a Roblox place to Roblox with the [Place Management API](https://create.roblox.com/docs/open-cloud/publishing-places-with-api-keys).
+
+See [Open Cloud](https://create.roblox.com/docs/open-cloud).,
 
 ## Inputs
 
@@ -17,7 +19,7 @@ GitHub action to upload a Roblox place to Roblox with the Place Management API
 
 ## `shouldPublish`
 
-**Optional** Boolean, should the game be saved and published (true) or just saved (false). *Defaults to true*
+**Optional** Boolean, should the place be saved and published (true) or just saved (false). *Defaults to true*
 ## 
 
 ## Outputs
@@ -25,6 +27,10 @@ GitHub action to upload a Roblox place to Roblox with the Place Management API
 ## `version`
 
 The uploaded place version.
+
+## `uploadTime`
+
+The time (in miliseconds) taken to publish the place.
 
 ## Example usage
 
